@@ -1,5 +1,6 @@
 const express = require("express");
 const authRoute = require("./routes/auth");
+const quizRoute = require("./routes/quiz");
 const userRoute = require("./routes/user");
 require("dotenv").config();
 const app = express();
@@ -12,6 +13,7 @@ app.use(cors());
 
 app.use("/auth", authRoute);
 app.use("/user", userRoute);
+app.use("/quiz", quizRoute);
 
 app.get("/", (req, res) => {
   res.send("working!!");
