@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#0c0c0c" id="theme-color-meta" />
+    <link rel="apple-touch-icon" href="./public/apple-touch-icon.png" />
+    <link rel="manifest" href="./public/manifest.json" />
+    <title>Trivia</title>
+
+    <!-- Theme detection script to avoid white flash -->
+    <script>
+      (function () {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        const currentTheme = localStorage.getItem("theme");
+
+        // Set dark mode if the user prefers it or it's set in localStorage
+        if (currentTheme === "dark" || (!currentTheme && prefersDark)) {
+          document.documentElement.classList.add("dark");
+          document
+            .querySelector("#theme-color-meta")
+            .setAttribute("content", "#0c0c0c");
+        } else {
+          document.documentElement.classList.remove("dark");
+          document
+            .querySelector("#theme-color-meta")
+            .setAttribute("content", "#ffffff");
+        }
+      })();
+    </script>
+
+    <!-- Ensure the initial background color matches the theme -->
+    <style>
+      html {
+        background-color: white;
+      }
+      html.dark {
+        background-color: #0c0c0c;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

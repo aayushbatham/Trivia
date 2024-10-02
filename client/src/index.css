@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0c0c0c; /* Dark background for dark mode */
+  color-scheme: light dark; /* Respect system color scheme */
+  transition: background-color 0.3s ease-in-out; /* Smooth transition */
+  font-family: sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  html,
+  body {
+    background-color: #ffffff; /* Light background for light mode */
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
